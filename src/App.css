@@ -1,38 +1,63 @@
-.App {
+body {
+  background-color: black;
+}
+.header {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(189, 191, 196);
   text-align: center;
+  font-size: 3em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin-top: 4.5em;
+}
+/* form */
+input {
+  margin: 1.2rem 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type='text'],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+  padding: 1em;
+  margin: 2em;
+  border: 2px solid gray;
+  border-radius: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  display: inline-block;
+  background: ;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  display: block;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* for mobile */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
