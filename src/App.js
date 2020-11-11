@@ -12,7 +12,7 @@ function App() {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(false)
   const [details, setDetails] = useState(false)
-  const [modal, setModal] = useState(false)
+  const [show, setShow] = useState(false)
   
 // axios request movies in OMDB database
   const searchMovies = async (text) => {
@@ -35,14 +35,19 @@ function App() {
       <SearchBox searchMovies={searchMovies} loading={loading} />
       <div className='grid'>
         {movies.map((movie, index) => (
-          <MovieCard movie={movie} key={index} setDetails={setDetails} />
+          <MovieCard movie={movie} key={index} show={show} setShow={setShow} setDetails={setDetails} loading={loading} setLoading={setLoading} />
           ))} 
       </div>
-      <Details style={{display: 'none'}}
+      {show ?
+      <Details  
       details={details}
+      setShow={setShow}
+      show={show}
       /> 
+      : null 
+      }
     </div>
-  );
+  )
 }
 
 

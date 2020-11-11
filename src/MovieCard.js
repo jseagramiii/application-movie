@@ -1,20 +1,26 @@
 import React from 'react'
 import { Button } from 'antd'
-import Loading from './Loading'
 import axios from 'axios'
+import Loading from './Loading'
 
 
-const MovieCard = ({movie, setDetails, setShowModal}) => {
+const MovieCard = ({movie, setDetails, setLoading, loading, setShow, show}) => {
 
     const apiKey = process.env.REACT_APP_API_KEY
 
     const onClick = async () => {
+        setDetails(false)
+        setLoading(true)
+        setShow(!show)
 
        let res = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`)
         
+       setLoading(false)
        setDetails(res.data)
     }
-
+    if(loading) {
+        return <Loading />
+    }
     return (
     <div className='card grow' onClick={() => onClick()}>
 
