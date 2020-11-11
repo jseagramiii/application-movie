@@ -1,20 +1,32 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Button } from 'antd'
-import Modal from './Modal'
+import Loading from './Loading'
+import axios from 'axios'
 
-const MovieCard = ({movie, showModal, showDetails}) => {
+
+const MovieCard = ({movie, setDetails, setShowModal}) => {
+
+    const apiKey = process.env.REACT_APP_API_KEY
+
+    const onClick = async () => {
+
+       let res = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`)
+        
+       setDetails(res.data)
+    }
 
     return (
-    <div className='card grow'>
+    <div className='card grow' onClick={() => onClick()}>
 
-        {movie.Poster === 'N/A' ? 
-        <img style={{ width: '13em' }} src ='https://www.theprintworks.com/wp-content/themes/psBella/assets/img/film-poster-placeholder.png' alt="movie"/> : 
-        <img style={{ width: '13em' }} src ={movie.Poster} alt="movie"/> }
-
+        <img  style={{width: '13em'}} src={movie.Poster === 'N/A' ? 'https://www.theprintworks.com/wp-content/themes/psBella/assets/img/film-poster-placeholder.png' : movie.Poster} alt={movie.Title}/>
         <h2 style={{color: 'white', fontFamily: 'revert'}}><em>{movie.Title}</em></h2>
-        <h4>{movie.Year}</h4>
+
+        <h4 style={{color: 'white'}}>{movie.Year}</h4>
+
         <Button danger className='type'>{movie.Type}</Button>
-        <Modal movie={movie} />
+        <div style={{color: 'white'}}>
+        </div>
+            
     </div>
     )
 }

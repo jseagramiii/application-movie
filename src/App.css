@@ -91,3 +91,23 @@ textarea {
   border-radius: 0.5em;
   font-size: 1em;
 }
+
+.details {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: 1000;
+  background-color: rgba(0, 2, 10, 0.8);
+  border: 3px solid rgb(100, 97, 97);
+  border-radius: 2em;
+  padding: 1em;
+  color: whitesmoke;
+  text-align: center;
+}
+/* mobile display of modal */
+@media (min-width: 600px) {
+  .details {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
