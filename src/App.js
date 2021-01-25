@@ -19,7 +19,7 @@ function App() {
 
     try {
       const res = await axios.get(
-        `http://www.omdbapi.com/?apikey=${apiKey}&s=${text}`
+        `https://www.omdbapi.com/?apikey=${apiKey}&s=${text}`
       )
       setMovies(res.data.Search)
       setLoading(false)

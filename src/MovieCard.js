@@ -19,7 +19,7 @@ const MovieCard = ({
 
     try {
       const res = await axios.get(
-        `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`
+        `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`
       )
       setLoading(false)
       setDetails(res.data)
