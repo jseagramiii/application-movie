@@ -17,16 +17,28 @@ function App() {
   const searchMovies = async (text) => {
     setLoading(true)
 
-    const res = await axios.get(
-      `http://www.omdbapi.com/?apikey=${apiKey}&s=${text}`
-    )
-
-    setMovies(res.data.Search)
-    setLoading(false)
+    try {
+      const res = await axios.get(
+        `http://www.omdbapi.com/?apikey=${apiKey}&s=${text}`
+      )
+      setMovies(res.data.Search)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const particlesOptions = {
     particles: { number: { value: 200 }, size: { value: 0.3 } },
+  }
+
+  if (movies === undefined) {
+    return (
+      <h1 style={{ color: 'white' }}>
+        something went wrong... refresh the page and try entering more letters
+        in the search
+      </h1>
+    )
   }
 
   return (
@@ -37,6 +49,7 @@ function App() {
       <div className='grid'>
         {movies.map((movie, index) => (
           <MovieCard
+            apiKey={apiKey}
             movie={movie}
             key={index}
             show={show}
