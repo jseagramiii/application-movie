@@ -29,7 +29,7 @@ function App() {
   }
 
   const particlesOptions = {
-    particles: { number: { value: 200 }, size: { value: 0.3 } },
+    particles: { number: { value: 100 }, size: { value: 0.3 } },
   }
 
   if (movies === undefined) {
