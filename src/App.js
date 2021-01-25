@@ -7,8 +7,8 @@ import Details from './Details'
 import MovieCard from './MovieCard'
 
 function App() {
-  const apiKey = process.env.REACT_APP_API_KEY
   const [movies, setMovies] = useState([])
+  const apiKey = '2d3d8ff5'
   const [loading, setLoading] = useState(false)
   const [details, setDetails] = useState(false)
   const [show, setShow] = useState(false)
