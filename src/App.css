@@ -54,7 +54,6 @@ textarea {
 
 .btn {
   display: inline-block;
-  background: ;
   color: #333;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
@@ -64,7 +63,6 @@ textarea {
   transition: opacity 0.2s ease-in;
   outline: none;
   display: block;
-  width: 100%;
 }
 
 /* for mobile */
@@ -105,4 +103,5 @@ textarea {
   text-align: center;
   display: flex;
   flex-direction: column;
+  max-width: 30em;
 }

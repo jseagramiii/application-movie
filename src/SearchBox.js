@@ -28,13 +28,13 @@ const SearchBox = ({ searchMovies, loading }) => {
           onChange={onChange}
           name='text'
           value={text}
-          style={{ width: '80%', margin: '1em auto 0 auto' }}
+          style={{ width: '50%', margin: '.5em auto 0 auto' }}
         />
         <input
           type='submit'
           value='search'
           className='btn'
-          style={{ width: '70%', margin: '0.5em auto 0 auto' }}
+          style={{ width: '20%', margin: '0.5em auto 0 auto' }}
         />
       </form>
     </div>
